@@ -1,0 +1,36 @@
+.auth {
+  align-items: center;
+  background-color: $green;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
+
+  & > h1 {
+    color: $light-green;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+  }
+}
+
+.auth__form-container {
+  color: $light-green;
+  background-color: $dark-green;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+
+  & > h2 {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+}
+
+a {
+  margin-top: 12px;
+  color: $primary;
+  font-size: 14px;
+  font-weight: 300;
+}
