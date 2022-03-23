@@ -1,5 +1,6 @@
-import { types } from "utils/types/types";
 import { toast } from "react-toastify";
+import { returnUser, errors, types, toastifyOptions } from "utils";
+import { startLoading, finishLoading } from "services";
 import {
   GoogleAuthProvider,
   signInWithPopup,
@@ -9,10 +10,6 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { returnUser } from "utils/firebase/returnUser";
-import { errors } from "utils/firebase/errors";
-import { toastifyOptions } from "utils/toastify/toast-options";
-import { startLoading, finishLoading } from "services/actions/ui/ui";
 
 // * Sync Dispatch
 

@@ -1,17 +1,13 @@
 import React from "react";
+import { useForm } from "hooks";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-
-import { useForm } from "hooks";
-import { Input } from "components";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  startLoginEmailAndPassword,
-  startLoginGoogle,
-} from "services/actions/auth/auth";
-import { isLoginFormValid } from "utils/validations/auth";
-import { toastifyOptions } from "utils/toastify/toast-options";
-import { errors } from "utils/firebase/errors";
+
+import { Input } from "components";
+
+import { startLoginEmailAndPassword, startLoginGoogle } from "services";
+import { isLoginFormValid, toastifyOptions, errors } from "utils";
 
 export const Login = () => {
   const dispatch = useDispatch();

@@ -1,11 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { useForm } from "hooks";
-
 import { Link } from "react-router-dom";
+
 import { Input } from "components";
-import { registerEmailAndPassword } from "services/actions/auth/auth";
-import { isRegisterFormValid } from "utils/validations/auth";
+
+import { registerEmailAndPassword } from "services";
+import { errors, isRegisterFormValid, toastifyOptions } from "utils";
 
 export const Register = () => {
   const dispatch = useDispatch();
@@ -19,6 +21,8 @@ export const Register = () => {
   const handleRegistration = () => {
     if (isRegisterFormValid(form)) {
       dispatch(registerEmailAndPassword(form.email, form.name, form.password));
+    } else {
+      toast.error(errors.invalidRegister, toastifyOptions);
     }
   };
 

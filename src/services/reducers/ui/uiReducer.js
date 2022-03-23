@@ -1,4 +1,4 @@
-import { types } from "utils/types/types";
+import { types } from "utils";
 
 // const initToast = {
 //   open: false,

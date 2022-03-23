@@ -1,4 +1,4 @@
-import { types } from "utils/types/types";
+import { types } from "utils";
 
 // {
 //   uid: "aXskmS98sd9NXsdFs31fF92",
