@@ -1,19 +1,45 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
+
 import { PublicRoute } from "routes/PublicRoute";
 import { PrivateRoute } from "routes/PrivateRoute";
 import { Login, Register } from "pages";
 
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { login, startLogout } from "services/actions/auth/auth";
+
 export const AppRouter = () => {
-  //   const [user, setUser] = useState({ id: 123, name: "Daniel" });
-  const [user, setUser] = useState({});
-  // TODO: onAuthStateChange
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.auth);
+
+  // * Check if the user is signed in
+  useEffect(() => {
+    const auth = getAuth();
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        dispatch(
+          login({
+            uid: user.uid,
+            name: user.displayName,
+            email: user.email,
+            img: user.photoURL,
+          })
+        );
+      }
+    });
+  }, [dispatch]);
+
+  const handleLogout = () => {
+    dispatch(startLogout());
+  };
+
   return (
     <div>
       <Routes>
         {/* Private Routes */}
         <Route path="/" element={<PrivateRoute user={user} />}>
-          <Route index element={<h1>Home</h1>} />
+          <Route index element={<h1 onClick={handleLogout}>Home</h1>} />
         </Route>
 
         {/* Auth Routes */}

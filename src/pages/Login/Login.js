@@ -3,11 +3,27 @@ import { Link } from "react-router-dom";
 
 import { useForm } from "hooks";
 import { Input } from "components";
+import { useDispatch } from "react-redux";
+import {
+  startLoginEmailAndPassword,
+  startLoginGoogle,
+} from "services/actions/auth/auth";
+import { isLoginFormValid } from "utils/validations/auth";
 
 export const Login = () => {
+  const dispatch = useDispatch();
   const { form, handleForm } = useForm({ email: "", password: "" });
 
-  // TODO: login
+  const handleLoginEmailAndPassword = () => {
+    if (isLoginFormValid(form)) {
+      dispatch(startLoginEmailAndPassword(form.email, form.password));
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    dispatch(startLoginGoogle());
+  };
+
   return (
     <div className="auth">
       <h1>WeChat!</h1>
@@ -25,8 +41,13 @@ export const Login = () => {
           placeholder="Password"
           value={form.password}
         />
-        <button className="btn btn-primary btn-full">Log In</button>
-        <button className="btn btn-light btn-full">
+        <button
+          onClick={handleLoginEmailAndPassword}
+          className="btn btn-primary btn-full"
+        >
+          Log In
+        </button>
+        <button onClick={handleGoogleLogin} className="btn btn-light btn-full">
           <i className="fab fa-google"></i> Sign In with Google
         </button>
 
