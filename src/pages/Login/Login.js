@@ -1,22 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { useForm } from "hooks";
 import { Input } from "components";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   startLoginEmailAndPassword,
   startLoginGoogle,
 } from "services/actions/auth/auth";
 import { isLoginFormValid } from "utils/validations/auth";
+import { toastifyOptions } from "utils/toastify/toast-options";
+import { errors } from "utils/firebase/errors";
 
 export const Login = () => {
   const dispatch = useDispatch();
+  const ui = useSelector((state) => state.ui);
   const { form, handleForm } = useForm({ email: "", password: "" });
 
   const handleLoginEmailAndPassword = () => {
     if (isLoginFormValid(form)) {
       dispatch(startLoginEmailAndPassword(form.email, form.password));
+    } else {
+      toast.error(errors.invalidLogin, toastifyOptions);
     }
   };
 
@@ -42,12 +48,17 @@ export const Login = () => {
           value={form.password}
         />
         <button
+          disabled={ui.loading}
           onClick={handleLoginEmailAndPassword}
           className="btn btn-primary btn-full"
         >
           Log In
         </button>
-        <button onClick={handleGoogleLogin} className="btn btn-light btn-full">
+        <button
+          disabled={ui.loading}
+          onClick={handleGoogleLogin}
+          className="btn btn-light btn-full"
+        >
           <i className="fab fa-google"></i> Sign In with Google
         </button>
 

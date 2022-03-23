@@ -30,6 +30,16 @@ body {
   border-color: #52b788;
 }
 
+.btn:disabled {
+  background-color: rgba(128, 128, 128, 0.75);
+  color: #bfbfbf;
+  cursor: default;
+}
+
+.btn:disabled:hover {
+  background-color: rgba(128, 128, 128, 0.75);
+}
+
 .btn {
   background-color: transparent;
   border: none;
