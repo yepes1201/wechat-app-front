@@ -1,3 +1,11 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html,
 body {
   width: 100%;
@@ -5,11 +13,9 @@ body {
   font-family: $poppins;
 }
 
-*,
-::after,
-::before {
-  margin: 0;
-  padding: 0;
+#root {
+  width: 100vw;
+  height: 100%;
 }
 
 // Inputs
@@ -75,5 +81,15 @@ body {
 
   &:hover {
     background-color: lighten($color: $light-green, $amount: 10);
+  }
+}
+
+.btn-outline-light {
+  color: $light-green;
+  border: 1px solid $light-green;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba($color: $light-green, $alpha: 0.35);
   }
 }

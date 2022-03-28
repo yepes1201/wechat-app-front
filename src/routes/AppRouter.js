@@ -27,10 +27,6 @@ export const AppRouter = () => {
     });
   }, [dispatch]);
 
-  // const handleLogout = () => {
-  //   dispatch(startLogout());
-  // };
-
   if (checking) {
     return <Loading />;
   } else {

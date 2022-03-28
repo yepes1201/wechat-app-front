@@ -1,0 +1,18 @@
+.navbar {
+  align-items: center;
+  background-color: $green;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  width: 100%;
+
+  & > h1 {
+    color: $light-green;
+    font-size: 24px;
+    font-weight: 500;
+  }
+}
+
+.btn-logout {
+  margin: 0;
+}

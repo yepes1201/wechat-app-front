@@ -1,4 +1,5 @@
 import { Input } from "./Input/Input";
 import { Loading } from "./Loading/Loading";
+import { Navbar } from "./Navbar/Navbar";
 
-export { Input, Loading };
+export { Input, Loading, Navbar };
