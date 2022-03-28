@@ -29,7 +29,7 @@ export const Register = () => {
   return (
     <div className="auth">
       <h1>WeChat!</h1>
-      <div className="auth__form-container">
+      <div className="auth__form-container animate__animated animate__fadeIn">
         <h2>Create account</h2>
         <Input
           onChange={handleForm}
