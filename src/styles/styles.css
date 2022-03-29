@@ -14,6 +14,20 @@ body {
   font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+span,
+button,
+input {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
 #root {
   width: 100vw;
   height: 100%;
@@ -155,6 +169,22 @@ a {
 .home {
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.home__flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
 }
 
 .loading__bg {
@@ -278,5 +308,169 @@ a {
 
 .btn-logout {
   margin: 0;
+}
+
+.sidebar {
+  background-color: #081c15;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1rem 0;
+  width: 240px;
+}
+
+.sidebar__header {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #2d6a4f;
+  color: #d8f3dc !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2px;
+  padding: 0 12px 12px;
+}
+
+.sidebar__header-form {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: rgba(216, 243, 220, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 16px;
+  gap: 8px;
+}
+
+.sidebar__header-form > input {
+  border: none;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0;
+  min-width: 0;
+}
+
+.sidebar__header-form > input::-webkit-input-placeholder {
+  color: rgba(216, 243, 220, 0.5);
+}
+
+.sidebar__header-form > input:-ms-input-placeholder {
+  color: rgba(216, 243, 220, 0.5);
+}
+
+.sidebar__header-form > input::-ms-input-placeholder {
+  color: rgba(216, 243, 220, 0.5);
+}
+
+.sidebar__header-form > input::placeholder {
+  color: rgba(216, 243, 220, 0.5);
+}
+
+.sidebar__header-add {
+  cursor: pointer;
+}
+
+.sidebar__list {
+  height: 100%;
+  padding: 12px 12px 0;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.friend-card {
+  border-radius: 5px;
+  padding: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.friend-card:hover {
+  cursor: pointer;
+  background-color: rgba(128, 128, 128, 0.25);
+}
+
+.friend-card h3 {
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0;
+  min-width: 0;
+}
+
+.friend-card p {
+  color: grey;
+  font-size: 12px;
+  font-weight: 300;
+  margin: 0;
+  min-width: 0;
+}
+
+.friend-card img {
+  width: 42px;
+  height: 42px;
+  border-radius: 100%;
+}
+
+.friend-img {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.friend-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.online {
+  background-color: #081c15;
+  border-radius: 100%;
+  bottom: 0;
+  height: 16px;
+  position: absolute;
+  right: 0;
+  width: 16px;
+}
+
+.online::before {
+  background-color: #00ff00;
+  border-radius: 100%;
+  display: block;
+  content: "";
+  height: 8px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 8px;
 }
 /*# sourceMappingURL=styles.css.map */

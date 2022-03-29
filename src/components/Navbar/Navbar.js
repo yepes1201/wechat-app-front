@@ -10,7 +10,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="navbar animate__animated animate__fadeIn">
+    <div className="navbar">
       <h1>WeChat!</h1>
       <button
         onClick={handleLogout}

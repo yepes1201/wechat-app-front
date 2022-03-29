@@ -13,6 +13,20 @@ body {
   font-family: $poppins;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+span,
+button,
+input {
+  font-family: $poppins;
+}
+
 #root {
   width: 100vw;
   height: 100%;

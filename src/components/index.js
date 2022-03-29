@@ -1,5 +1,21 @@
 import { Input } from "./Input/Input";
 import { Loading } from "./Loading/Loading";
 import { Navbar } from "./Navbar/Navbar";
+import { FriendCard } from "./FriendCard/FriendCard";
+import { Sidebar } from "./Sidebar/Sidebar";
+import { SidebarHeader } from "./Sidebar/SidebarHeader";
+import { SidebarList } from "./Sidebar/SidebarList";
+import { Chat } from "./Chat/Chat";
+import { ProfileSettings } from "./ProfileSettings/ProfileSettings";
 
-export { Input, Loading, Navbar };
+export {
+  Input,
+  Loading,
+  Navbar,
+  Sidebar,
+  Chat,
+  ProfileSettings,
+  SidebarHeader,
+  FriendCard,
+  SidebarList,
+};

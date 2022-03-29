@@ -6,8 +6,8 @@ export const PrivateRoute = ({ user }) => {
     return <Navigate to="/auth/login" />;
   }
   return (
-    <div>
+    <>
       <Outlet />
-    </div>
+    </>
   );
 };

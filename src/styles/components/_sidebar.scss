@@ -1,0 +1,49 @@
+.sidebar {
+  background-color: $dark-green;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  width: 240px;
+}
+
+.sidebar__header {
+  align-items: center;
+  border-bottom: 1px solid $green;
+  color: $light-green !important;
+  display: flex;
+  gap: 2px;
+  padding: 0 12px 12px;
+}
+
+.sidebar__header-form {
+  align-items: center;
+  color: rgba($light-green, 0.5);
+  display: flex;
+  font-size: 16px;
+  gap: 8px;
+
+  & > input {
+    border: none;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+    min-width: 0;
+
+    &::placeholder {
+      color: rgba($light-green, 0.5);
+    }
+  }
+}
+
+.sidebar__header-add {
+  cursor: pointer;
+}
+
+.sidebar__list {
+  height: 100%;
+  padding: 12px 12px 0;
+  width: 100%;
+  overflow-y: scroll;
+}

@@ -31,23 +31,21 @@ export const AppRouter = () => {
     return <Loading />;
   } else {
     return (
-      <div>
-        <Routes>
-          {/* Private Routes */}
-          <Route path="/" element={<PrivateRoute user={user} />}>
-            <Route index element={<Home />} />
-          </Route>
+      <Routes>
+        {/* Private Routes */}
+        <Route path="/" element={<PrivateRoute user={user} />}>
+          <Route index element={<Home />} />
+        </Route>
 
-          {/* Auth Routes */}
-          <Route path="/auth" element={<PublicRoute user={user} />}>
-            <Route index element={<Navigate to="/auth/login" replace />} />
-            <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
-          </Route>
+        {/* Auth Routes */}
+        <Route path="/auth" element={<PublicRoute user={user} />}>
+          <Route index element={<Navigate to="/auth/login" replace />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
 
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </div>
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     );
   }
 };
