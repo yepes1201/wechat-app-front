@@ -33,6 +33,10 @@ input {
   height: 100%;
 }
 
+ul {
+  list-style: none;
+}
+
 .input {
   background-color: transparent;
   border: none;
@@ -335,6 +339,7 @@ a {
   display: flex;
   gap: 2px;
   padding: 0 12px 12px;
+  width: 100%;
 }
 
 .sidebar__header-form {
@@ -347,6 +352,7 @@ a {
   display: flex;
   font-size: 16px;
   gap: 8px;
+  width: 100%;
 }
 
 .sidebar__header-form > input {
@@ -356,6 +362,7 @@ a {
   font-weight: 300;
   margin: 0;
   min-width: 0;
+  max-width: 160px;
 }
 
 .sidebar__header-form > input::-webkit-input-placeholder {
