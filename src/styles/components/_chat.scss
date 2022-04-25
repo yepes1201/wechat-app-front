@@ -71,3 +71,17 @@
     }
   }
 }
+
+@media screen and (max-width: 500px) {
+  .chat__input-send {
+    button {
+      span {
+        display: none;
+      }
+      i {
+        padding: 4px;
+        margin: 0;
+      }
+    }
+  }
+}

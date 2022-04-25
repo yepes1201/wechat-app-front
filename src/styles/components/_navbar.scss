@@ -13,6 +13,57 @@
   }
 }
 
+#friends-link,
+#profile-link {
+  display: block;
+}
+
+.navbar__menu {
+  color: $light-green;
+  display: flex;
+  gap: 4px;
+
+  p {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+    padding: 0 8px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
 .btn-logout {
   margin: 0;
+}
+
+@media screen and (min-width: 900px) {
+  #profile-link {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  #friends-link {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navbar__menu {
+    gap: 0;
+  }
+
+  .btn-logout {
+    i {
+      margin: 0;
+    }
+    span {
+      display: none;
+    }
+  }
 }

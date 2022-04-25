@@ -1,7 +1,7 @@
 .sidebar {
   background-color: $dark-green;
   color: $white;
-  display: flex;
+  display: none;
   flex-direction: column;
   padding: 1rem 0;
   width: 240px;
@@ -49,4 +49,10 @@
   padding: 12px 12px 0;
   width: 100%;
   overflow-y: scroll;
+}
+
+@media screen and (min-width: 750px) {
+  .sidebar {
+    display: flex;
+  }
 }

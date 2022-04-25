@@ -12,11 +12,15 @@ export const Navbar = () => {
   return (
     <div className="navbar">
       <h1>WeChat!</h1>
+      <div className="navbar__menu">
+        <p id="friends-link">Friends</p>
+        <p id="profile-link">Profile</p>
+      </div>
       <button
         onClick={handleLogout}
         className="btn btn-outline-light btn-logout"
       >
-        <i className="fas fa-sign-out"></i> Logout
+        <i className="fas fa-sign-out"></i> <span>Logout</span>
       </button>
     </div>
   );

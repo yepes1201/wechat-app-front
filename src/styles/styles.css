@@ -310,16 +310,65 @@ a {
   font-weight: 500;
 }
 
+#friends-link,
+#profile-link {
+  display: block;
+}
+
+.navbar__menu {
+  color: #d8f3dc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 4px;
+}
+
+.navbar__menu p {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.navbar__menu p:hover {
+  color: #ffffff;
+}
+
 .btn-logout {
   margin: 0;
+}
+
+@media screen and (min-width: 900px) {
+  #profile-link {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  #friends-link {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navbar__menu {
+    gap: 0;
+  }
+  .btn-logout i {
+    margin: 0;
+  }
+  .btn-logout span {
+    display: none;
+  }
 }
 
 .sidebar {
   background-color: #081c15;
   color: #ffffff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -390,6 +439,14 @@ a {
   padding: 12px 12px 0;
   width: 100%;
   overflow-y: scroll;
+}
+
+@media screen and (min-width: 750px) {
+  .sidebar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 
 .friend-card {
@@ -581,6 +638,16 @@ a {
   color: #ffffff;
 }
 
+@media screen and (max-width: 500px) {
+  .chat__input-send button span {
+    display: none;
+  }
+  .chat__input-send button i {
+    padding: 4px;
+    margin: 0;
+  }
+}
+
 .message {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -593,7 +660,9 @@ a {
 }
 
 .message__container {
-  width: 45%;
+  max-width: 80%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 
 .message__message {
@@ -601,9 +670,14 @@ a {
   border-radius: 5px;
   color: #081c15;
   font-size: 14px;
-  margin-bottom: 10px;
   padding: 8px 12px;
   width: 100%;
+}
+
+.message__date {
+  color: grey;
+  font-size: 10px;
+  float: left;
 }
 
 .mine {
@@ -611,8 +685,61 @@ a {
       align-self: flex-end;
 }
 
+.mine .message__date {
+  float: right;
+}
+
 .mine .message__message {
   background-color: #2d6a4f;
   color: #ffffff;
+}
+
+.profile-settings {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #081c15;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 24px;
+  padding: 16px;
+  width: 384px;
+}
+
+.profile-settings__header {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #d8f3dc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 20px;
+}
+
+.profile-settings__header img {
+  border-radius: 50%;
+  height: 108px;
+  width: 108px;
+}
+
+.profile-settings__form input {
+  text-align: center;
+  font-weight: 300;
+}
+
+@media screen and (min-width: 900px) {
+  .profile-settings {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

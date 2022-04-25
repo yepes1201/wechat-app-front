@@ -13,7 +13,7 @@ export const ChatInput = () => {
       </div>
       <div className="chat__input-send">
         <button className="btn">
-          <i className="fas fa-paper-plane"></i> Send
+          <i className="fas fa-paper-plane"></i> <span>Send</span>
         </button>
       </div>
     </div>
