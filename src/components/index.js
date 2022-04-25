@@ -7,6 +7,9 @@ import { SidebarHeader } from "./Sidebar/SidebarHeader";
 import { SidebarList } from "./Sidebar/SidebarList";
 import { Chat } from "./Chat/Chat";
 import { ProfileSettings } from "./ProfileSettings/ProfileSettings";
+import { ChatHeader } from "./Chat/ChatHeader";
+import { ChatInput } from "./Chat/ChatInput";
+import { ChatMessages } from "./Chat/ChatMessages";
 
 export {
   Input,
@@ -18,4 +21,7 @@ export {
   SidebarHeader,
   FriendCard,
   SidebarList,
+  ChatHeader,
+  ChatInput,
+  ChatMessages,
 };

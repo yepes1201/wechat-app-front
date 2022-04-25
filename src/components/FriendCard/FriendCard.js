@@ -11,7 +11,7 @@ export const FriendCard = () => {
         <div className="online"></div>
       </div>
       <div className="friend-info">
-        <h3>Bricette Salcedo</h3>
+        <h3>Friend</h3>
         <p>Online</p>
       </div>
     </div>
