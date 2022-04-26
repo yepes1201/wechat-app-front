@@ -5,6 +5,7 @@
   flex-direction: column;
   gap: 24px;
   padding: 16px;
+  position: relative;
   width: 384px;
 }
 
@@ -23,6 +24,11 @@
 }
 
 .profile-settings__form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
   input {
     text-align: center;
     font-weight: 300;
@@ -33,4 +39,20 @@
   .profile-settings {
     display: flex;
   }
+}
+
+.profile-settings__responsive {
+  display: flex !important;
+  width: 100% !important;
+  position: absolute;
+  height: calc(100% - 63px);
+  z-index: 1 !important;
+}
+
+.sidebar__responsive {
+  display: flex !important;
+  width: 100% !important;
+  position: absolute;
+  height: calc(100% - 63px);
+  z-index: 1 !important;
 }

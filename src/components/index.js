@@ -10,6 +10,7 @@ import { ProfileSettings } from "./ProfileSettings/ProfileSettings";
 import { ChatHeader } from "./Chat/ChatHeader";
 import { ChatInput } from "./Chat/ChatInput";
 import { ChatMessages } from "./Chat/ChatMessages";
+import { Message } from "./Chat/Message";
 
 export {
   Input,
@@ -24,4 +25,5 @@ export {
   ChatHeader,
   ChatInput,
   ChatMessages,
+  Message,
 };

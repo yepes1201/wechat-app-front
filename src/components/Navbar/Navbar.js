@@ -1,9 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { useResponsiveSidebars } from "hooks";
 import { startLogout } from "services";
 
 export const Navbar = () => {
   const dispatch = useDispatch();
+  const { handleResponsiveSidebars } = useResponsiveSidebars();
 
   const handleLogout = () => {
     dispatch(startLogout());
@@ -13,8 +15,20 @@ export const Navbar = () => {
     <div className="navbar">
       <h1>WeChat!</h1>
       <div className="navbar__menu">
-        <p id="friends-link">Friends</p>
-        <p id="profile-link">Profile</p>
+        <p
+          onClick={() => handleResponsiveSidebars("friends")}
+          id="friends-link"
+          name="friends-link"
+        >
+          Friends
+        </p>
+        <p
+          onClick={() => handleResponsiveSidebars("profile")}
+          id="profile-link"
+          name="profile-link"
+        >
+          Profile
+        </p>
       </div>
       <button
         onClick={handleLogout}

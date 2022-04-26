@@ -1,4 +1,5 @@
 import React from "react";
+import { Message } from "components";
 
 export const ChatMessages = () => {
   const messages = [
@@ -22,20 +23,8 @@ export const ChatMessages = () => {
   ];
   return (
     <div className="chat__messages">
-      {messages.map((message) => {
-        return (
-          <div className="message">
-            <div className={`message__container ${message.mine && "mine"}`}>
-              <h6>{message.mine ? "Me" : message.author}</h6>
-              <div className="message__message">
-                <p>{message.message}</p>
-              </div>
-              <span className="message__date">
-                <i className="fas fa-clock"></i> {message.date}
-              </span>
-            </div>
-          </div>
-        );
+      {messages.map((message, i) => {
+        return <Message key={message.date + i} message={message} />;
       })}
       <div id="anchorDiv"></div>
     </div>
