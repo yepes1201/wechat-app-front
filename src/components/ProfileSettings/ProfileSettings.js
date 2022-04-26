@@ -1,22 +1,30 @@
-import { useForm } from "hooks";
 import React from "react";
+import { useForm } from "hooks";
+import { useSelector } from "react-redux";
 
 export const ProfileSettings = () => {
+  const { auth, ui } = useSelector((state) => state);
   const { form, handleForm } = useForm({
-    name: "Daniel Yepes",
-    email: "danielyepes@mail.com",
-    password: "123456789",
+    name: auth.name,
+    email: auth.email,
+    password: "",
   });
+
+  const handleSave = () => {
+    // TODO: Save user data
+  };
+
   return (
     <div className="profile-settings">
       <div className="profile-settings__header">
         <div className="profile-settings__avatar">
-          <img src="https://via.placeholder.com/150" alt="avatar" />
+          <img src={auth.img} alt="avatar" />
         </div>
         <h3>Daniel Yepes</h3>
       </div>
       <div className="profile-settings__form">
         <input
+          autoComplete="off"
           onChange={handleForm}
           className="input"
           type="text"
@@ -26,6 +34,7 @@ export const ProfileSettings = () => {
           value={form.name}
         />
         <input
+          autoComplete="off"
           onChange={handleForm}
           className="input"
           type="email"
@@ -43,7 +52,13 @@ export const ProfileSettings = () => {
           placeholder="Password"
           value={form.password}
         />
-        <button className="btn btn-primary btn-full">Save</button>
+        <button
+          disabled={ui.loading}
+          onClick={handleSave}
+          className="btn btn-primary btn-full"
+        >
+          Save
+        </button>
       </div>
     </div>
   );
