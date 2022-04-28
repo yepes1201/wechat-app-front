@@ -5,4 +5,7 @@ export const types = {
   uiFinishLoading: "[UI] Finish Loading",
   // uiOpenToast: "[UI] Open Toast",
   // uiCloseToast: "[UI] Close Toast",
+
+  userDataSet: "[DATA] Set Data",
+  userDataClear: "[DATA] Clear",
 };

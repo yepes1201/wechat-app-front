@@ -5,6 +5,7 @@ import { types } from "utils";
 //   username: "username",
 //   name: "name",
 //   email: "mail@mail.com",
+//   friends: []
 // }
 
 export const authReducer = (state = {}, action) => {

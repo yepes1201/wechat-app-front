@@ -111,3 +111,10 @@ ul {
     background-color: rgba($color: $light-green, $alpha: 0.35);
   }
 }
+
+.nofriends-message {
+  color: $light-green;
+  font-weight: 200;
+  font-size: 14px;
+  opacity: 0.5;
+}

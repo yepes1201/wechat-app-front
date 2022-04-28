@@ -1,6 +1,12 @@
 import { toast } from "react-toastify";
-import { returnUser, errors, types, toastifyOptions } from "utils";
-import { startLoading, finishLoading } from "services";
+import {
+  returnUser,
+  errors,
+  types,
+  toastifyOptions,
+  createUserDocument,
+} from "utils";
+import { startLoading, finishLoading, setUserData } from "services";
 import {
   GoogleAuthProvider,
   signInWithPopup,
@@ -41,10 +47,18 @@ export const registerEmailAndPassword = (email, name, password) => {
       );
       await updateProfile(auth.currentUser, { displayName: name });
       const newUser = returnUser(user, name);
+
+      // Validate user already exists in DB
+      await createUserDocument(user.uid);
+
+      // Set user data
+      dispatch(setUserData(user.uid));
+
       dispatch(login(newUser));
       dispatch(finishLoading());
     } catch (err) {
       toast.error(errors[err.code], toastifyOptions);
+    } finally {
       dispatch(finishLoading());
     }
   };
@@ -62,10 +76,15 @@ export const startLoginEmailAndPassword = (email, password) => {
         password
       );
       const user = returnUser(firebaseUser);
+
+      // Set user data
+      dispatch(setUserData(user.uid));
+
       dispatch(login(user));
       dispatch(finishLoading());
     } catch (err) {
       toast.error(errors[err.code], toastifyOptions);
+    } finally {
       dispatch(finishLoading());
     }
   };
@@ -81,11 +100,19 @@ export const startLoginGoogle = () => {
         auth,
         new GoogleAuthProvider()
       );
-      const user = returnUser(firebaseUser);
+      let user = returnUser(firebaseUser);
+
+      // Create user document if not exists
+      await createUserDocument(user.uid);
+
+      // Set user data
+      dispatch(setUserData(user.uid));
+
       dispatch(login(user));
       dispatch(finishLoading());
     } catch (err) {
       toast.error(errors[err.code], toastifyOptions);
+    } finally {
       dispatch(finishLoading());
     }
   };

@@ -117,6 +117,13 @@ ul {
   background-color: rgba(216, 243, 220, 0.35);
 }
 
+.nofriends-message {
+  color: #d8f3dc;
+  font-weight: 200;
+  font-size: 14px;
+  opacity: 0.5;
+}
+
 .auth {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -447,7 +454,20 @@ a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    width: 240px !important;
+    position: relative !important;
+    height: auto !important;
   }
+}
+
+.sidebar__responsive {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  position: absolute;
+  height: calc(100% - 63px);
+  z-index: 1;
 }
 
 .friend-card {
@@ -756,26 +776,20 @@ a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    width: 384px !important;
+    height: auto;
+    position: relative !important;
+    height: auto !important;
   }
 }
 
 .profile-settings__responsive {
-  display: -webkit-box !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
-  width: 100% !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
   position: absolute;
   height: calc(100% - 63px);
-  z-index: 1 !important;
-}
-
-.sidebar__responsive {
-  display: -webkit-box !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
-  width: 100% !important;
-  position: absolute;
-  height: calc(100% - 63px);
-  z-index: 1 !important;
+  z-index: 1;
 }
 /*# sourceMappingURL=styles.css.map */

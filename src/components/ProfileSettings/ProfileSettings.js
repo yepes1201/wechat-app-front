@@ -18,7 +18,13 @@ export const ProfileSettings = () => {
     <div className="profile-settings">
       <div className="profile-settings__header">
         <div className="profile-settings__avatar">
-          <img src={auth.img} alt="avatar" />
+          <img
+            src={
+              auth.img ||
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZYRo0nQdHum-G5HlyiHSiVYrXlyCQnaX3lA&usqp=CAU"
+            }
+            alt="avatar"
+          />
         </div>
         <h3>Daniel Yepes</h3>
       </div>

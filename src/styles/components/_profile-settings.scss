@@ -38,21 +38,17 @@
 @media screen and (min-width: 900px) {
   .profile-settings {
     display: flex;
+    width: 384px !important;
+    height: auto;
+    position: relative !important;
+    height: auto !important;
   }
 }
 
 .profile-settings__responsive {
-  display: flex !important;
-  width: 100% !important;
+  display: flex;
+  width: 100%;
   position: absolute;
   height: calc(100% - 63px);
-  z-index: 1 !important;
-}
-
-.sidebar__responsive {
-  display: flex !important;
-  width: 100% !important;
-  position: absolute;
-  height: calc(100% - 63px);
-  z-index: 1 !important;
+  z-index: 1;
 }

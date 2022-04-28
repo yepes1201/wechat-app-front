@@ -8,7 +8,7 @@ import { Home, Login, Register } from "pages";
 import { Loading } from "components";
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { login, startLogout } from "services";
+import { login, setUserData } from "services";
 import { returnUser } from "utils";
 
 export const AppRouter = () => {
@@ -21,6 +21,7 @@ export const AppRouter = () => {
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
       if (user) {
+        dispatch(setUserData(user.uid));
         dispatch(login(returnUser(user)));
       }
       setChecking(false);

@@ -1,13 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useResponsiveSidebars } from "hooks";
-import { startLogout } from "services";
+import { startLogout, setClearData } from "services";
 
 export const Navbar = () => {
   const dispatch = useDispatch();
   const { handleResponsiveSidebars } = useResponsiveSidebars();
 
   const handleLogout = () => {
+    dispatch(setClearData());
     dispatch(startLogout());
   };
 
