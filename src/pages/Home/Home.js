@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import {
@@ -13,7 +13,15 @@ import {
 export const Home = () => {
   const modals = useSelector((state) => state.modals);
 
-  Socket.emit("conectado", "Usuario conectado");
+  useEffect(() => {
+    Socket.emit("conectado", "Usuario conectado");
+
+    return () => {
+      Socket.emit("desconectado", "Usuario desconectado");
+      Socket.off();
+    };
+  }, []);
+
   return (
     <div className="home animate__animated animate__fadeIn">
       <Navbar />

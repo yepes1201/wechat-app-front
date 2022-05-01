@@ -18,7 +18,7 @@ export const SidebarList = () => {
     return (
       <div
         style={
-          friends.length === 0
+          friends?.length === 0
             ? {
                 display: "flex",
                 alignItems: "center",
@@ -29,7 +29,7 @@ export const SidebarList = () => {
         className="sidebar__list"
       >
         <ul>
-          {friends.length !== 0 ? (
+          {friends?.length !== 0 ? (
             friends.map((friend) => {
               return (
                 <li key={friend}>

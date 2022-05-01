@@ -13,6 +13,7 @@ import { ChatMessages } from "./Chat/ChatMessages";
 import { Message } from "./Chat/Message";
 import socket from "./Socket/Socket";
 import { Modal } from "./Modal/Modal";
+import { NotificationCard } from "./Notification/NotificationCard";
 
 export {
   Input,
@@ -30,4 +31,5 @@ export {
   Message,
   socket,
   Modal,
+  NotificationCard,
 };

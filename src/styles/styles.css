@@ -345,6 +345,126 @@ a {
   color: #ffffff;
 }
 
+.navbar__buttons {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #d8f3dc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 20px;
+  gap: 24px;
+}
+
+.navbar__notification {
+  cursor: pointer;
+  position: relative;
+}
+
+.navbar__notification span {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #081c15;
+  border-radius: 50%;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12px;
+  height: 16px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  width: 16px;
+  right: -6px;
+  top: 0;
+}
+
+.navbar__notification:hover .notification-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.notification-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 12px;
+  width: 240px;
+  max-width: 300;
+}
+
+.notification-card img {
+  border-radius: 50%;
+  height: 52px;
+}
+
+.notification-card p {
+  font-size: 14px;
+}
+
+.notification-card button {
+  margin-top: 0;
+}
+
+.notification-left {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 8px;
+}
+
+.notification-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.notification-list {
+  background-color: #081c15;
+  border-radius: 5px;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 12px;
+  left: calc(-100% * 11);
+  position: absolute;
+  padding: 8px;
+  max-height: 500px;
+  overflow-y: scroll;
+  z-index: 1000;
+}
+
+.notification-no {
+  width: 240px;
+  text-align: center;
+  font-size: 16px;
+}
+
 .btn-logout {
   margin: 0;
 }

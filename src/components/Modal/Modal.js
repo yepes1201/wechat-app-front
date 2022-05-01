@@ -1,15 +1,32 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import validator from "validator";
+import { toast } from "react-toastify";
 import { useForm } from "hooks";
 import { closeAddFriend } from "services";
+import { socket as Socket } from "components";
+import { toastifyOptions } from "utils";
 
 export const Modal = () => {
   const dispatch = useDispatch();
+  const { auth } = useSelector((state) => state);
   const { form, handleForm } = useForm({
     email: "",
   });
+
   const handleModal = () => {
     dispatch(closeAddFriend());
+  };
+
+  const handleAddFriend = () => {
+    if (form.email === auth.email) {
+      toast.error("You can not add yourself", toastifyOptions);
+    } else if (validator.isEmail(form.email)) {
+      Socket.emit("add", { to: form.email, from: auth });
+      dispatch(closeAddFriend());
+    } else {
+      toast.error("Please type a valid email", toastifyOptions);
+    }
   };
 
   return (
@@ -36,7 +53,12 @@ export const Modal = () => {
           />
         </div>
         <div>
-          <button className="btn btn-primary btn-full">Add Friend</button>
+          <button
+            onClick={handleAddFriend}
+            className="btn btn-primary btn-full"
+          >
+            Add Friend
+          </button>
         </div>
       </div>
     </div>

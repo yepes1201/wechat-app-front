@@ -38,6 +38,93 @@
   }
 }
 
+.navbar__buttons {
+  align-items: center;
+  color: $light-green;
+  display: flex;
+  font-size: 20px;
+  gap: 24px;
+}
+
+.navbar__notification {
+  cursor: pointer;
+  position: relative;
+
+  span {
+    align-items: center;
+    background-color: $dark-green;
+    border-radius: 50%;
+    color: $white;
+    display: flex;
+    font-size: 12px;
+    height: 16px;
+    justify-content: center;
+    position: absolute;
+    width: 16px;
+    right: -6px;
+    top: 0;
+  }
+  &:hover {
+    .notification-list {
+      display: flex;
+    }
+  }
+}
+
+.notification-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 240px;
+  max-width: 300;
+
+  img {
+    border-radius: 50%;
+    height: 52px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+  button {
+    margin-top: 0;
+  }
+}
+
+.notification-left {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.notification-right {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.notification-list {
+  background-color: $dark-green;
+  border-radius: 5px;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  left: calc(-100% * 11);
+  position: absolute;
+  padding: 8px;
+  max-height: 500px;
+  overflow-y: scroll;
+  z-index: 1000;
+}
+
+.notification-no {
+  width: 240px;
+  text-align: center;
+  font-size: 16px;
+}
+
 .btn-logout {
   margin: 0;
 }
