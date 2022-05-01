@@ -1,23 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useResponsiveSidebars } from "hooks";
 import { NotificationCard, socket as Socket } from "components";
-import { startLogout, setClearData } from "services";
+import { startLogout, setClearData, addFriend } from "services";
 import { isNotificationNotRepeat } from "utils";
 
 export const Navbar = () => {
-  const { auth } = useSelector((state) => state);
+  const { auth, notifications } = useSelector((state) => state);
   const dispatch = useDispatch();
   const { handleResponsiveSidebars } = useResponsiveSidebars();
-  const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
     Socket.on("add", (data) => {
-      if (data.to !== auth.email) return;
-      if (!isNotificationNotRepeat(notifications, data)) return;
-      setNotifications([...notifications, data.from]);
+      if (data.to === auth.email) {
+        if (isNotificationNotRepeat(notifications, data)) {
+          dispatch(addFriend(data.from));
+        }
+      }
     });
-  }, [notifications, auth]);
+    return () => Socket.off("add");
+  }, [notifications, auth, dispatch]);
 
   const handleLogout = () => {
     dispatch(setClearData());

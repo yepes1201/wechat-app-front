@@ -11,4 +11,8 @@ export const types = {
 
   modalsOpenAddFriend: "[MODALS] Open Add Friend",
   modalsCloseAddFriend: "[MODALS] Close Add Friend",
+
+  notificationAddFriend: "[NOTIFICATION] Add Friend",
+  notificationAcceptFriend: "[NOTIFICATION] Accept Friend",
+  notificationRejectFriend: "[NOTIFICATION] Reject Friend",
 };

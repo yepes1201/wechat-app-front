@@ -23,6 +23,7 @@ export const Modal = () => {
       toast.error("You can not add yourself", toastifyOptions);
     } else if (validator.isEmail(form.email)) {
       Socket.emit("add", { to: form.email, from: auth });
+      toast.success("Friend request sent", toastifyOptions);
       dispatch(closeAddFriend());
     } else {
       toast.error("Please type a valid email", toastifyOptions);

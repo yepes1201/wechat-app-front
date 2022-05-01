@@ -6,6 +6,7 @@ import {
   uiReducer,
   userDataReducer,
   modalsReducers,
+  notificationsReducer,
 } from "services";
 
 const composedEnhancers =
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   ui: uiReducer,
   userData: userDataReducer,
   modals: modalsReducers,
+  notifications: notificationsReducer,
 });
 
 export const store = createStore(

@@ -2,6 +2,7 @@ import { authReducer } from "./reducers/auth/authReducer";
 import { uiReducer } from "./reducers/ui/uiReducer";
 import { userDataReducer } from "./reducers/userData/userDataReducer";
 import { modalsReducers } from "./reducers/modals/modalsReducers";
+import { notificationsReducer } from "./reducers/notifications/notificationsReducer";
 import { startLoading, finishLoading } from "./actions/ui/ui";
 import {
   registerEmailAndPassword,
@@ -13,6 +14,7 @@ import {
 } from "./actions/auth/auth";
 import { setUserData, setClearData } from "./actions/userData/userData";
 import { openAddFriend, closeAddFriend } from "./actions/modals/modals";
+import { addFriend } from "./actions/notifications/notifications";
 
 export {
   registerEmailAndPassword,
@@ -31,4 +33,6 @@ export {
   modalsReducers,
   openAddFriend,
   closeAddFriend,
+  notificationsReducer,
+  addFriend,
 };
