@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import validator from "validator";
 import { toast } from "react-toastify";
 import { useForm } from "hooks";
-import { closeAddFriend } from "services";
+import { closeAddFriend, startAddFriend } from "services";
 import { socket as Socket } from "components";
 import { toastifyOptions } from "utils";
 
@@ -23,7 +23,7 @@ export const Modal = () => {
       toast.error("You can not add yourself", toastifyOptions);
     } else if (validator.isEmail(form.email)) {
       Socket.emit("add", { to: form.email, from: auth });
-      toast.success("Friend request sent", toastifyOptions);
+      dispatch(startAddFriend(form.email));
       dispatch(closeAddFriend());
     } else {
       toast.error("Please type a valid email", toastifyOptions);

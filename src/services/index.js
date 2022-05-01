@@ -14,7 +14,12 @@ import {
 } from "./actions/auth/auth";
 import { setUserData, setClearData } from "./actions/userData/userData";
 import { openAddFriend, closeAddFriend } from "./actions/modals/modals";
-import { addFriend } from "./actions/notifications/notifications";
+import {
+  startAddFriend,
+  setFriends,
+  addFriend,
+  clearNotifications,
+} from "./actions/notifications/notifications";
 
 export {
   registerEmailAndPassword,
@@ -34,5 +39,8 @@ export {
   openAddFriend,
   closeAddFriend,
   notificationsReducer,
+  startAddFriend,
+  setFriends,
   addFriend,
+  clearNotifications,
 };

@@ -8,7 +8,8 @@ import { Home, Login, Register } from "pages";
 import { Loading } from "components";
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { login, setUserData } from "services";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
+import { login, setUserData, setFriends } from "services";
 import { returnUser } from "utils";
 
 export const AppRouter = () => {
@@ -23,6 +24,12 @@ export const AppRouter = () => {
       if (user) {
         dispatch(setUserData(user.uid));
         dispatch(login(returnUser(user)));
+        const docSnap = await getDoc(
+          doc(getFirestore(), "friendsrequest", user.uid)
+        );
+        if (docSnap.exists()) {
+          dispatch(setFriends(docSnap.data().friends));
+        }
       }
       setChecking(false);
     });

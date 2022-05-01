@@ -26,7 +26,7 @@ export const ProfileSettings = () => {
             alt="avatar"
           />
         </div>
-        <h3>Daniel Yepes</h3>
+        <h3>{auth.name}</h3>
       </div>
       <div className="profile-settings__form">
         <input

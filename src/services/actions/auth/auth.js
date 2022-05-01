@@ -6,7 +6,7 @@ import {
   toastifyOptions,
   createUserDocument,
 } from "utils";
-import { startLoading, finishLoading, setUserData } from "services";
+import { startLoading, finishLoading, setUserData, setFriends } from "services";
 import {
   GoogleAuthProvider,
   signInWithPopup,
@@ -16,6 +16,7 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
+import { getDoc, getFirestore, doc } from "firebase/firestore";
 
 // * Sync Dispatch
 
@@ -49,7 +50,7 @@ export const registerEmailAndPassword = (email, name, password) => {
       const newUser = returnUser(user, name);
 
       // Validate user already exists in DB
-      await createUserDocument(user.uid);
+      await createUserDocument(user.uid, newUser);
 
       // Set user data
       dispatch(setUserData(user.uid));
@@ -80,6 +81,14 @@ export const startLoginEmailAndPassword = (email, password) => {
       // Set user data
       dispatch(setUserData(user.uid));
 
+      // Get friendrequest from DB
+      const docSnap = await getDoc(
+        doc(getFirestore(), "friendsrequest", user.uid)
+      );
+      if (docSnap.exists()) {
+        dispatch(setFriends(docSnap.data().friends));
+      }
+
       dispatch(login(user));
       dispatch(finishLoading());
     } catch (err) {
@@ -103,10 +112,18 @@ export const startLoginGoogle = () => {
       let user = returnUser(firebaseUser);
 
       // Create user document if not exists
-      await createUserDocument(user.uid);
+      await createUserDocument(user.uid, user);
 
       // Set user data
       dispatch(setUserData(user.uid));
+
+      // Get friendrequest from DB
+      const docSnap = await getDoc(
+        doc(getFirestore(), "friendsrequest", user.uid)
+      );
+      if (docSnap.exists()) {
+        dispatch(setFriends(docSnap.data().friends));
+      }
 
       dispatch(login(user));
       dispatch(finishLoading());

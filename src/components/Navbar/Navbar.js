@@ -2,8 +2,13 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useResponsiveSidebars } from "hooks";
 import { NotificationCard, socket as Socket } from "components";
-import { startLogout, setClearData, addFriend } from "services";
-import { isNotificationNotRepeat } from "utils";
+import {
+  startLogout,
+  setClearData,
+  addFriend,
+  clearNotifications,
+} from "services";
+import { isNotificationRepeat } from "utils";
 
 export const Navbar = () => {
   const { auth, notifications } = useSelector((state) => state);
@@ -13,7 +18,8 @@ export const Navbar = () => {
   useEffect(() => {
     Socket.on("add", (data) => {
       if (data.to === auth.email) {
-        if (isNotificationNotRepeat(notifications, data)) {
+        if (isNotificationRepeat(notifications, data)) {
+          console.log("notification repeat");
           dispatch(addFriend(data.from));
         }
       }
@@ -24,6 +30,7 @@ export const Navbar = () => {
   const handleLogout = () => {
     dispatch(setClearData());
     dispatch(startLogout());
+    dispatch(clearNotifications());
   };
 
   return (
