@@ -8,4 +8,7 @@ export const types = {
 
   userDataSet: "[DATA] Set Data",
   userDataClear: "[DATA] Clear",
+
+  modalsOpenAddFriend: "[MODALS] Open Add Friend",
+  modalsCloseAddFriend: "[MODALS] Close Add Friend",
 };

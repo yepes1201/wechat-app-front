@@ -1,8 +1,16 @@
 import React from "react";
 import { useForm } from "hooks";
+import { useDispatch } from "react-redux";
+import { openAddFriend } from "services";
 
 export const SidebarHeader = () => {
+  const dispatch = useDispatch();
   const { form, handleForm } = useForm({ friendName: "" });
+
+  const handleModal = () => {
+    dispatch(openAddFriend());
+  };
+
   return (
     <div className="sidebar__header">
       <div className="sidebar__header-form">
@@ -17,7 +25,7 @@ export const SidebarHeader = () => {
           value={form.friendName}
         />
       </div>
-      <div className="sidebar__header-add">
+      <div onClick={handleModal} className="sidebar__header-add">
         <i className="fas fa-user-plus"></i>
       </div>
     </div>

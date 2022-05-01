@@ -12,6 +12,7 @@ import { ChatInput } from "./Chat/ChatInput";
 import { ChatMessages } from "./Chat/ChatMessages";
 import { Message } from "./Chat/Message";
 import socket from "./Socket/Socket";
+import { Modal } from "./Modal/Modal";
 
 export {
   Input,
@@ -28,4 +29,5 @@ export {
   ChatMessages,
   Message,
   socket,
+  Modal,
 };
