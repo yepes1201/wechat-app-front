@@ -11,6 +11,7 @@ import { ChatHeader } from "./Chat/ChatHeader";
 import { ChatInput } from "./Chat/ChatInput";
 import { ChatMessages } from "./Chat/ChatMessages";
 import { Message } from "./Chat/Message";
+import socket from "./Socket/Socket";
 
 export {
   Input,
@@ -26,4 +27,5 @@ export {
   ChatInput,
   ChatMessages,
   Message,
+  socket,
 };
