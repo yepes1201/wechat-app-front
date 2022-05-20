@@ -1,6 +1,10 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { acceptFriendRequest, rejectFriendRequest } from "services";
 
-export const NotificationCard = ({ name, img }) => {
+export const NotificationCard = ({ user }) => {
+  const { name, img } = user;
+  const dispatch = useDispatch();
   return (
     <div className="notification-card">
       <div className="notification-left">
@@ -14,8 +18,18 @@ export const NotificationCard = ({ name, img }) => {
         <p>{name}</p>
       </div>
       <div className="notification-right">
-        <button className="btn btn-primary">Accept</button>
-        <button className="btn btn-light">Reject</button>
+        <button
+          onClick={() => dispatch(acceptFriendRequest(user))}
+          className="btn btn-primary"
+        >
+          Accept
+        </button>
+        <button
+          onClick={() => dispatch(rejectFriendRequest(user))}
+          className="btn btn-light"
+        >
+          Reject
+        </button>
       </div>
     </div>
   );

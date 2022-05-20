@@ -8,12 +8,6 @@ export const notificationsReducer = (state = [], action) => {
     case types.notificationAddFriend:
       return [...state, action.payload];
 
-    case types.notificationAcceptFriend:
-      break;
-
-    case types.notificationRejectFriend:
-      break;
-
     case types.notificationClear:
       return [];
 

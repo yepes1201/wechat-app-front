@@ -17,7 +17,7 @@ export const setUserData = (uid) => {
   };
 };
 
-const setData = (data) => {
+export const setData = (data) => {
   return {
     type: types.userDataSet,
     payload: data,

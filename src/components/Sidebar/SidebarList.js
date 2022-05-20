@@ -32,8 +32,8 @@ export const SidebarList = () => {
           {friends?.length !== 0 ? (
             friends?.map((friend) => {
               return (
-                <li key={friend}>
-                  <FriendCard />
+                <li key={friend.uid}>
+                  <FriendCard {...friend} />
                 </li>
               );
             })

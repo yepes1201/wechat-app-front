@@ -12,13 +12,19 @@ import {
   login,
   logout,
 } from "./actions/auth/auth";
-import { setUserData, setClearData } from "./actions/userData/userData";
+import {
+  setUserData,
+  setClearData,
+  setData,
+} from "./actions/userData/userData";
 import { openAddFriend, closeAddFriend } from "./actions/modals/modals";
 import {
   startAddFriend,
   setFriends,
   addFriend,
   clearNotifications,
+  acceptFriendRequest,
+  rejectFriendRequest,
 } from "./actions/notifications/notifications";
 
 export {
@@ -35,6 +41,7 @@ export {
   userDataReducer,
   setUserData,
   setClearData,
+  setData,
   modalsReducers,
   openAddFriend,
   closeAddFriend,
@@ -43,4 +50,6 @@ export {
   setFriends,
   addFriend,
   clearNotifications,
+  acceptFriendRequest,
+  rejectFriendRequest,
 };

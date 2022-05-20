@@ -19,7 +19,6 @@ export const Navbar = () => {
     Socket.on("add", (data) => {
       if (data.to === auth.email) {
         if (isNotificationRepeat(notifications, data)) {
-          console.log("notification repeat");
           dispatch(addFriend(data.from));
         }
       }
@@ -62,8 +61,8 @@ export const Navbar = () => {
           )}
           <div className="notification-list">
             {notifications.length !== 0 ? (
-              notifications.map((notification, i) => (
-                <NotificationCard key={i} {...notification} />
+              notifications.map((notification) => (
+                <NotificationCard key={notification.uid} user={notification} />
               ))
             ) : (
               <p className="notification-no">No friend request</p>
