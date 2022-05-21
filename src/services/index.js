@@ -3,6 +3,8 @@ import { uiReducer } from "./reducers/ui/uiReducer";
 import { userDataReducer } from "./reducers/userData/userDataReducer";
 import { modalsReducers } from "./reducers/modals/modalsReducers";
 import { notificationsReducer } from "./reducers/notifications/notificationsReducer";
+import { chatReducer } from "./reducers/chat/chatReducer";
+
 import { startLoading, finishLoading } from "./actions/ui/ui";
 import {
   registerEmailAndPassword,
@@ -26,6 +28,7 @@ import {
   acceptFriendRequest,
   rejectFriendRequest,
 } from "./actions/notifications/notifications";
+import { startActiveChat } from "./actions/chat/chat";
 
 export {
   registerEmailAndPassword,
@@ -52,4 +55,6 @@ export {
   clearNotifications,
   acceptFriendRequest,
   rejectFriendRequest,
+  chatReducer,
+  startActiveChat,
 };

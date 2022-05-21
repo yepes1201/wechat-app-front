@@ -9,9 +9,10 @@ import {
   socket as Socket,
   Modal,
 } from "components";
+import { NoChat } from "components/Chat/NoChat";
 
 export const Home = () => {
-  const modals = useSelector((state) => state.modals);
+  const { modals, chat } = useSelector((state) => state);
 
   useEffect(() => {
     Socket.emit("conectado", "Usuario conectado");
@@ -28,7 +29,7 @@ export const Home = () => {
       <div className="home__flex">
         {modals.addFriend && <Modal />}
         <Sidebar />
-        <Chat />
+        {chat ? <Chat /> : <NoChat />}
         <ProfileSettings />
       </div>
     </div>

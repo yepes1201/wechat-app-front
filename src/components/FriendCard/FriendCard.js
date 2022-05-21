@@ -1,8 +1,17 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { startActiveChat } from "services";
 
-export const FriendCard = ({ name, img }) => {
+export const FriendCard = ({ friend, auth }) => {
+  const { img, name } = friend;
+  const dispatch = useDispatch();
+
+  const handleChat = () => {
+    dispatch(startActiveChat(auth, friend));
+  };
+
   return (
-    <div className="friend-card">
+    <div onClick={handleChat} className="friend-card">
       <div className="friend-img">
         <img
           src={

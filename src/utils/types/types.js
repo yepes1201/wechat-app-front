@@ -17,4 +17,8 @@ export const types = {
   notificationAcceptFriend: "[NOTIFICATION] Accept Friend",
   notificationRejectFriend: "[NOTIFICATION] Reject Friend",
   notificationClear: "[NOTIFICATION] Clear",
+
+  chatActive: "[CHAT] Active",
+  chatDeactive: "[CHAT] Deactive",
+  chatAddMessage: "[CHAT] Add Message",
 };

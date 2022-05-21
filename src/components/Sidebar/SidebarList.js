@@ -4,7 +4,7 @@ import { FriendCard } from "components";
 import { Loading } from "components";
 
 export const SidebarList = () => {
-  const { userData, ui } = useSelector((state) => state);
+  const { userData, ui, auth } = useSelector((state) => state);
   const { loading } = ui;
   const { friends } = userData;
 
@@ -33,7 +33,7 @@ export const SidebarList = () => {
             friends?.map((friend) => {
               return (
                 <li key={friend.uid}>
-                  <FriendCard {...friend} />
+                  <FriendCard auth={auth} friend={friend} />
                 </li>
               );
             })
