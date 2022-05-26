@@ -18,14 +18,17 @@ export const startActiveChat = (auth, user) => {
     try {
       const q = query(
         collection(getFirestore(), "chats"),
-        where("users", "array-contains", [auth.uid, user.uid])
+        where("users", "array-contains", auth.uid)
       );
       const querySnapshots = await getDocs(q);
       let chat;
       if (querySnapshots.docs.length > 0) {
         // If chat exists, get the chat
         querySnapshots.forEach((doc) => {
-          chat = doc.data();
+          const data = doc.data();
+          if (data.users.includes(user.uid)) {
+            chat = data;
+          }
         });
       } else {
         // If chat doesn't exist, create one
