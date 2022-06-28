@@ -7,8 +7,8 @@ export const setUserData = (uid) => {
   return async (dispatch) => {
     try {
       dispatch(startLoading());
-      const data = await getUserDocument(uid);
-      dispatch(setData(data));
+      const { friends } = await getUserDocument(uid);
+      dispatch(setData({ friends }));
     } catch (err) {
       toast.error(errors[err.code], toastifyOptions);
     } finally {

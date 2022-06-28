@@ -9,6 +9,9 @@ export const ProfileSettings = () => {
     email: auth.email,
     password: "",
   });
+  const img =
+    auth.img ||
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZYRo0nQdHum-G5HlyiHSiVYrXlyCQnaX3lA&usqp=CAU";
 
   const handleSave = () => {
     // TODO: Save user data
@@ -18,13 +21,7 @@ export const ProfileSettings = () => {
     <div className="profile-settings">
       <div className="profile-settings__header">
         <div className="profile-settings__avatar">
-          <img
-            src={
-              auth.img ||
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZYRo0nQdHum-G5HlyiHSiVYrXlyCQnaX3lA&usqp=CAU"
-            }
-            alt="avatar"
-          />
+          <img src={img} alt="avatar" referrerPolicy="no-referrer" />
         </div>
         <h3>{auth.name}</h3>
       </div>
