@@ -45,10 +45,31 @@ export const startActiveChat = (auth, user) => {
   };
 };
 
-export const addMessageChat = (message) => {
+export const startSendMessage = (message) => {
   return async (dispatch, getState) => {
     try {
-    } catch (err) {}
+      const { auth, chat } = getState();
+      const { content } = chat;
+      const { messages } = content;
+      const newMessages = [...messages, message];
+      const newChat = {
+        ...chat,
+        content: {
+          ...content,
+          messages: newMessages,
+        },
+      };
+      dispatch(addMessageLocal(newChat));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+const addMessageLocal = (chat) => {
+  return {
+    type: types.chatAddMessage,
+    payload: chat,
   };
 };
 

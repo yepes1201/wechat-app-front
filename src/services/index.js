@@ -28,7 +28,7 @@ import {
   acceptFriendRequest,
   rejectFriendRequest,
 } from "./actions/notifications/notifications";
-import { startActiveChat } from "./actions/chat/chat";
+import { startActiveChat, startSendMessage } from "./actions/chat/chat";
 
 export {
   registerEmailAndPassword,
@@ -57,4 +57,5 @@ export {
   rejectFriendRequest,
   chatReducer,
   startActiveChat,
+  startSendMessage,
 };

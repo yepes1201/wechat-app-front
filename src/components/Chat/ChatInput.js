@@ -1,11 +1,17 @@
-import { useForm } from "hooks";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useForm } from "hooks";
+import { startSendMessage } from "services";
 
 export const ChatInput = () => {
+  const dispatch = useDispatch();
+  const { name, uid } = useSelector((state) => state.auth);
   const { form, handleForm, resetForm } = useForm({ message: "" });
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    const message = { author: name, authorId: uid, date: Date.now(), ...form };
+    dispatch(startSendMessage(message));
     resetForm();
   };
   return (
