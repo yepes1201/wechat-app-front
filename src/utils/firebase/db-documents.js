@@ -1,4 +1,4 @@
-import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, getDoc, addDoc, collection } from "firebase/firestore";
 
 export const createUserDocument = async (userId, user) => {
   const userRef = await getDoc(doc(getFirestore(), "users", userId));
@@ -22,3 +22,12 @@ export const getUserDocument = async (userId) => {
   const docRef = await getDoc(doc(getFirestore(), "users", userId));
   return docRef.exists() && docRef.data();
 };
+
+export const createChat = async (authId, userId) => {
+  const chat = {
+    users: [authId, userId],
+    messages: [],
+  };
+  await addDoc(collection(getFirestore(), "chats"), chat); // Add chat to firestore
+  return chat;
+}

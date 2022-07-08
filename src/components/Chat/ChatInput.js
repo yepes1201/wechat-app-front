@@ -24,6 +24,7 @@ export const ChatInput = () => {
       <div className="chat__input">
         <div className="chat__input-field">
           <input
+            autoFocus={true}
             onChange={handleForm}
             type="text"
             name="message"

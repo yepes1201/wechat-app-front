@@ -1,11 +1,10 @@
-import { types } from "utils";
+import { createChat, types } from "utils";
 import {
   collection,
   getDocs,
   getFirestore,
   doc,
   updateDoc,
-  addDoc,
   where,
   query,
 } from "firebase/firestore";
@@ -18,6 +17,8 @@ export const startActiveChat = (auth, user) => {
         where("users", "array-contains", auth.uid)
       );
       const querySnapshots = await getDocs(q);
+
+      let foundFriend = false;
       let chat;
       if (querySnapshots.docs.length > 0) {
         // If chat exists, get the chat
@@ -25,15 +26,17 @@ export const startActiveChat = (auth, user) => {
           const data = doc.data();
           if (data.users.includes(user.uid)) {
             chat = { ...data, id: doc.id };
+            foundFriend = true;
+            return;
           }
         });
+        if (!foundFriend) {
+          // If chat doesn't exist, create one
+          chat = await createChat(auth.uid, user.uid);
+        }
       } else {
-        // If chat doesn't exist, create one
-        chat = {
-          users: [auth.uid, user.uid],
-          messages: [],
-        };
-        await addDoc(collection(getFirestore(), "chats"), chat); // Add chat to firestore
+        // If it's users first time, create one
+        chat = await createChat(auth.uid, user.uid);
       }
       dispatch(activeChat(chat, user)); // Set chat as active
     } catch (err) {
