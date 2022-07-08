@@ -56,7 +56,8 @@ export const ProfileSettings = () => {
           value={form.password}
         />
         <button
-          disabled={ui.loading}
+          // disabled={ui.loading}
+          disabled={true}
           onClick={handleSave}
           className="btn btn-primary btn-full"
         >
