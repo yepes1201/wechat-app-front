@@ -5,7 +5,7 @@ import {
   Navbar,
   Sidebar,
   Chat,
-  ProfileSettings,
+  // ProfileSettings,
   socket as Socket,
   Modal,
 } from "components";
@@ -30,7 +30,7 @@ export const Home = () => {
         {modals.addFriend && <Modal />}
         <Sidebar />
         {chat ? <Chat /> : <NoChat />}
-        <ProfileSettings />
+        {/* <ProfileSettings /> */}
       </div>
     </div>
   );
