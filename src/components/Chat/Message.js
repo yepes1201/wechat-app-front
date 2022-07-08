@@ -11,7 +11,7 @@ export const Message = ({ message, myId }) => {
       <div
         className={`message__container ${message.authorId === myId && "mine"}`}
       >
-        <h6>{message.authorId ? "Me" : message.author}</h6>
+        <h6>{message.authorId === myId ? "Me" : message.author}</h6>
         <div className="message__message">
           <p>{message.message}</p>
         </div>

@@ -27,7 +27,7 @@ export const startActiveChat = (auth, user) => {
         querySnapshots.forEach((doc) => {
           const data = doc.data();
           if (data.users.includes(user.uid)) {
-            chat = data;
+            chat = { ...data, id: doc.id };
           }
         });
       } else {

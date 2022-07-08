@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "hooks";
+import { socket as Socket } from "components";
 import { startSendMessage } from "services";
 
 export const ChatInput = () => {
@@ -11,9 +12,11 @@ export const ChatInput = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const message = { author: name, authorId: uid, date: Date.now(), ...form };
+    Socket.emit("message", message);
     dispatch(startSendMessage(message));
     resetForm();
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="chat__input">
