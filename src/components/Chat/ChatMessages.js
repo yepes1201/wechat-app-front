@@ -9,12 +9,13 @@ export const ChatMessages = () => {
   const { messages, id } = chat.content;
 
   useEffect(() => {
-    Socket.on("message", (message) => {
-      if (message.authorId !== auth.uid) {
-        dispatch(startSendMessage(message));
-      } else {
+    Socket.on("message", ({ message, chatId }) => {
+      if (chatId === id) {
+        if (message.authorId !== auth.uid) {
+          dispatch(startSendMessage(message, chatId));
+        }
         const anchorDiv = document.getElementById("anchorDiv");
-        anchorDiv.scrollIntoView({ behavior: "smooth" });
+        anchorDiv.scrollIntoView({ behavior: "smooth", bottom: "100%" });
       }
     });
 

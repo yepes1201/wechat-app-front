@@ -45,7 +45,7 @@ export const startActiveChat = (auth, user) => {
   };
 };
 
-export const startSendMessage = (message) => {
+export const startSendMessage = (message, chatId) => {
   return async (dispatch, getState) => {
     try {
       const { auth, chat } = getState();
@@ -59,6 +59,9 @@ export const startSendMessage = (message) => {
           messages: newMessages,
         },
       };
+      await updateDoc(doc(getFirestore(), `chats/${chatId}`), {
+        messages: newMessages,
+      });
       dispatch(addMessageLocal(newChat));
     } catch (err) {
       console.log(err);

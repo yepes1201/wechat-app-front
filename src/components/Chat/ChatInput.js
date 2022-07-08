@@ -6,14 +6,16 @@ import { startSendMessage } from "services";
 
 export const ChatInput = () => {
   const dispatch = useDispatch();
-  const { name, uid } = useSelector((state) => state.auth);
+  const { auth, chat } = useSelector((state) => state);
   const { form, handleForm, resetForm } = useForm({ message: "" });
+  const { name, uid } = auth;
+  const { id } = chat.content;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const message = { author: name, authorId: uid, date: Date.now(), ...form };
-    Socket.emit("message", message);
-    dispatch(startSendMessage(message));
+    Socket.emit("message", { message, chatId: id });
+    dispatch(startSendMessage(message, id));
     resetForm();
   };
 
