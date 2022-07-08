@@ -1,0 +1,38 @@
+.message {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.message__container {
+  max-width: 80%;
+  align-self: flex-start;
+}
+
+.message__message {
+  background-color: rgba($color: black, $alpha: 0.15);
+  border-radius: 5px;
+  color: $dark-green;
+  font-size: 14px;
+  padding: 8px 12px;
+  width: 100%;
+}
+
+.message__date {
+  color: grey;
+  font-size: 10px;
+  float: left;
+}
+
+.mine {
+  align-self: flex-end;
+
+  .message__date {
+    float: right;
+  }
+
+  .message__message {
+    background-color: $green;
+    color: $white;
+  }
+}

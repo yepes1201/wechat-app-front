@@ -4,13 +4,17 @@ import { Navigate, Route, Routes } from "react-router-dom";
 
 import { PublicRoute } from "routes/PublicRoute";
 import { PrivateRoute } from "routes/PrivateRoute";
-import { Login, Register } from "pages";
+import { Home, Login, Register } from "pages";
+import { Loading } from "components";
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { login, startLogout } from "services/actions/auth/auth";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
+import { login, setUserData, setFriends } from "services";
+import { returnUser } from "utils";
 
 export const AppRouter = () => {
   const dispatch = useDispatch();
+  const [checking, setChecking] = useState(true);
   const user = useSelector((state) => state.auth);
 
   // * Check if the user is signed in
@@ -18,28 +22,27 @@ export const AppRouter = () => {
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
       if (user) {
-        dispatch(
-          login({
-            uid: user.uid,
-            name: user.displayName,
-            email: user.email,
-            img: user.photoURL,
-          })
+        dispatch(setUserData(user.uid));
+        dispatch(login(returnUser(user)));
+        const docSnap = await getDoc(
+          doc(getFirestore(), "friendsrequest", user.uid)
         );
+        if (docSnap.exists()) {
+          dispatch(setFriends(docSnap.data().friends));
+        }
       }
+      setChecking(false);
     });
   }, [dispatch]);
 
-  const handleLogout = () => {
-    dispatch(startLogout());
-  };
-
-  return (
-    <div>
+  if (checking) {
+    return <Loading />;
+  } else {
+    return (
       <Routes>
         {/* Private Routes */}
         <Route path="/" element={<PrivateRoute user={user} />}>
-          <Route index element={<h1 onClick={handleLogout}>Home</h1>} />
+          <Route index element={<Home />} />
         </Route>
 
         {/* Auth Routes */}
@@ -51,6 +54,6 @@ export const AppRouter = () => {
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </div>
-  );
+    );
+  }
 };

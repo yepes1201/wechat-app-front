@@ -1,0 +1,70 @@
+.friend-card {
+  border-radius: 5px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgba($color: grey, $alpha: 0.25);
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+    min-width: 0;
+  }
+
+  p {
+    color: grey;
+    font-size: 12px;
+    font-weight: 300;
+    margin: 0;
+    min-width: 0;
+  }
+
+  img {
+    width: 42px;
+    height: 42px;
+    border-radius: 100%;
+  }
+}
+
+.friend-img {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.friend-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.online {
+  background-color: $dark-green;
+  border-radius: 100%;
+  bottom: 0;
+  height: 16px;
+  position: absolute;
+  right: 0;
+  width: 16px;
+
+  &::before {
+    background-color: #00ff00;
+    border-radius: 100%;
+    display: block;
+    content: "";
+    height: 8px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+  }
+}

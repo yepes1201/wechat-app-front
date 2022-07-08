@@ -1,10 +1,11 @@
-import { types } from "utils/types/types";
+import { types } from "utils";
 
 // {
 //   uid: "aXskmS98sd9NXsdFs31fF92",
 //   username: "username",
 //   name: "name",
 //   email: "mail@mail.com",
+//   friends: []
 // }
 
 export const authReducer = (state = {}, action) => {

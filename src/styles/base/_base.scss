@@ -1,3 +1,11 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html,
 body {
   width: 100%;
@@ -5,11 +13,27 @@ body {
   font-family: $poppins;
 }
 
-*,
-::after,
-::before {
-  margin: 0;
-  padding: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+span,
+button,
+input {
+  font-family: $poppins;
+}
+
+#root {
+  width: 100vw;
+  height: 100%;
+}
+
+ul {
+  list-style: none;
 }
 
 // Inputs
@@ -31,6 +55,15 @@ body {
 }
 
 // Buttons
+.btn:disabled {
+  background-color: rgba($color: grey, $alpha: 0.75);
+  color: darken($color: $white, $amount: 25);
+  cursor: default;
+  &:hover {
+    background-color: rgba($color: grey, $alpha: 0.75);
+  }
+}
+
 .btn {
   background-color: transparent;
   border: none;
@@ -67,4 +100,21 @@ body {
   &:hover {
     background-color: lighten($color: $light-green, $amount: 10);
   }
+}
+
+.btn-outline-light {
+  color: $light-green;
+  border: 1px solid $light-green;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba($color: $light-green, $alpha: 0.35);
+  }
+}
+
+.nofriends-message {
+  color: $light-green;
+  font-weight: 200;
+  font-size: 14px;
+  opacity: 0.5;
 }

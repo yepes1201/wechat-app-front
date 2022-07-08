@@ -2,5 +2,16 @@
 @import "./config/config";
 @import "./base/base";
 
-// Pages & Components
+// Pages
 @import "./pages/auth";
+@import "./pages/home";
+
+// Components
+@import "./components/loading";
+@import "./components/navbar";
+@import "./components/sidebar";
+@import "./components/friend-card";
+@import "./components/chat";
+@import "./components/message";
+@import "./components/profile-settings";
+@import "./components/modal";

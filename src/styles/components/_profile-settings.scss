@@ -1,0 +1,54 @@
+.profile-settings {
+  align-items: center;
+  background-color: $dark-green;
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px;
+  position: relative;
+  width: 384px;
+}
+
+.profile-settings__header {
+  align-items: center;
+  color: $light-green;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+
+  img {
+    border-radius: 50%;
+    height: 108px;
+    width: 108px;
+  }
+}
+
+.profile-settings__form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  input {
+    text-align: center;
+    font-weight: 300;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .profile-settings {
+    display: flex;
+    width: 384px !important;
+    height: auto;
+    position: relative !important;
+    height: auto !important;
+  }
+}
+
+.profile-settings__responsive {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  height: calc(100% - 63px);
+  z-index: 1;
+}
