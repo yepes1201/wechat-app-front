@@ -1,10 +1,11 @@
 import React from "react";
 
 export const Message = ({ message, myId }) => {
+  const minutes = new Date(message.date).getMinutes();
   const date =
     new Date(message.date).getHours() +
     ":" +
-    new Date(message.date).getMinutes();
+    ((minutes < 10 && `0${minutes}`) || minutes);
   return (
     <div className="message">
       <div
