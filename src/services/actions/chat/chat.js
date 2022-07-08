@@ -48,7 +48,7 @@ export const startActiveChat = (auth, user) => {
 export const startSendMessage = (message, chatId) => {
   return async (dispatch, getState) => {
     try {
-      const { auth, chat } = getState();
+      const { chat } = getState();
       const { content } = chat;
       const { messages } = content;
       const newMessages = [...messages, message];
