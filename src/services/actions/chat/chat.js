@@ -1,13 +1,10 @@
 import { types } from "utils";
 import {
   collection,
-  getDoc,
   getDocs,
   getFirestore,
   doc,
-  arrayUnion,
   updateDoc,
-  setDoc,
   addDoc,
   where,
   query,
